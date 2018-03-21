@@ -2,7 +2,7 @@
     var username =  userNickname;
 
     //Connect to socket.io
-    var socket = io.connect('http://127.0.0.1:8585');
+    var socket = io.connect('http://127.0.0.1:5000');
 
     // Check for connection 
     if(socket !== undefined) {
