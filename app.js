@@ -10,7 +10,7 @@ var app = express();
 //code required to connect express + socket.io (they must listen on the same port)
 var server = require('http').Server(app);
 var client = require('socket.io')(server);
-server.listen(8585);
+server.listen(process.env.PORT || 5000);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
