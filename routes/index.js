@@ -13,9 +13,6 @@ router.get('/chat', function(req, res, next) {
   else
     res.redirect("/");
 });
-router.get('/users/detail', function(req, res, next) {
-  res.send('details!!!!');
-});
 
 //POST requests
 router.post('/chat', function (req, res) {
