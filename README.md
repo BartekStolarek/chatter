@@ -18,3 +18,6 @@ Chatter application is based on Node.js server with Express framework. When it's
 3. ``` npm start ```
 4. App will start by default on the port 8585
 To test the chatter you can open ``` localhost:8585 ``` in the two browser tabs and try to "chat" with yourself.
+
+### Demo
+https://chatter-web.herokuapp.com
