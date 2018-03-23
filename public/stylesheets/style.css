@@ -32,6 +32,8 @@ body {
 }
 .main {
     height: 250px;
+    text-align: center;
+    color: white;
 }
 
 .left {
@@ -203,12 +205,12 @@ body {
     border-radius: 7px;
 }
 #submitButton {
-    background-color: #125083;
+    background-color: #25323f;
     border: none;
     transition: 0.3s;
 }
 #submitButton:hover {
-    background-color: #236194;
+    background-color: #14212e;
 }
 #editInput {
     margin-bottom: 0px;
@@ -294,11 +296,6 @@ body {
     padding-bottom: 0;
 }
 
-@media screen and (max-width: 670px) {
-    /* .center {
-        width: 535px;
-    } */
-}
 @media screen and (max-width: 778px) {
     #channels {
         height: 175px;
