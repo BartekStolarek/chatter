@@ -179,7 +179,7 @@
 
         $('#addChannelButton').click( function() {
             //if channelName or channelPassword are too long, display info
-            if($('#channelInput').val().length > 20 || $('#channelPasswordInput').val().length > 20) {
+            if($('#channelInput').val().length > 20 || $('#channelPasswordInput').val().length > 20 || ($('#channelPasswordInput').val().length != 0 && $('#channelPasswordInput').val().length < 4) || $('#channelInput').val().length < 4) {
                 $("#longChannelError").css('visibility', 'visible');
 
                 //after 3 seconds, hide errorInfo
