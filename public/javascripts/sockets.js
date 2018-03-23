@@ -2,7 +2,7 @@
     var username =  userNickname;
 
     //Connect to socket.io
-    var socket = io.connect('https://chatter-web.herokuapp.com/');
+    var socket = io.connect('https://chatter-web.herokuapp.com');
 
     // Check for connection 
     if(socket !== undefined) {
@@ -179,7 +179,7 @@
 
         $('#addChannelButton').click( function() {
             //if channelName or channelPassword are too long, display info
-            if($('#channelInput').val().length > 20 || $('#channelPasswordInput').val().length > 20) {
+            if($('#channelInput').val().length > 20 || $('#channelPasswordInput').val().length > 20 || ($('#channelPasswordInput').val().length != 0 && $('#channelPasswordInput').val().length < 4) || $('#channelInput').val().length < 4) {
                 $("#longChannelError").css('visibility', 'visible');
 
                 //after 3 seconds, hide errorInfo
