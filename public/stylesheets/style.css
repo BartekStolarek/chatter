@@ -5,7 +5,7 @@
 }
 
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
     border-radius: 5px;
 }
 
@@ -16,46 +16,45 @@
 }
 
 body {
-    background-color: #0d426e;
+    background-color: #364452;
 }
 
 .center {
-    width: 80%;
-    margin: auto;
-    position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
+    text-align: left;
     height: 632px;
-    text-align: center;
-    color: #eee;
+
+    position:absolute;
+    left:0; right:0;
+    top:0; bottom:0;
+    margin:auto;
+    max-width:100%;
+    max-height:100%;
 }
 .main {
     height: 250px;
 }
-.chat {
-    box-shadow: 0 0 20px #222;
-    text-align: left;
-}
 
 .left {
-    float: left;
-    width: 30%;
-    background-color: #125083;
+    background-color: #25323f;
     color: white;
     text-align: left;
     height: 632px;
+    box-shadow: 0 0 10px #333;
+    border-radius: 20px 0px 0px 20px;
 }
 
 .right {
-    float: left;
-    width: 70%;
-    background-color: #eee;
+    background-color: #f5f9fd;
     color: black;
-    height: 632px
+    height: 632px;
+    box-shadow: 0 0 20px #222;
+    border-radius: 0px 20px 20px 0px;
 }
 
 .username {
     height: 40px;
     padding: 20px;
+    padding-bottom: 0px;
     text-align: center;
 }
 .active {
@@ -65,6 +64,9 @@ body {
     height: 150px;
     overflow-x: hidden;
     overflow-y: scroll;
+}
+.active::-webkit-scrollbar-thumb {
+    background-color: #364452;
 }
 .green {
     color: limegreen;
@@ -76,12 +78,15 @@ body {
 .channels {
     margin-top: 50px;
 }
+#channels::-webkit-scrollbar-thumb {
+    background-color: #364452;
+}
 #channels {
     margin: 0px;
     margin-top: 15px;
     margin-bottom: 15px;
     margin-right: 5px;
-    height: 225px;
+    height: 200px;
     overflow-x: hidden;
     overflow-y: scroll;
     padding-left: 20px;
@@ -97,17 +102,18 @@ body {
 .channel-item {
     padding: 5px;
     padding-left: 5px;
-    transition: 0.5s;
+    margin-right: 5px;
+    transition: 0.3s;
     overflow: hidden;
 }
 .channel-item:hover {
     cursor: pointer;
-    background-color: #ee5456;
+    background-color: #314050;
 }
 .fa-pencil-square-o,
 .fa-check-circle,
 .fa-plus-circle {
-    transition: 0.5s;
+    transition: 0.3s;
 }
 .fa-pencil-square-o:hover,
 .fa-check-circle:hover,
@@ -121,8 +127,9 @@ body {
     font-size: 3.75rem;
     padding-top: 4px;
 }
-.fa-pencil-square-o {
+#editButton {
     width: 25%;
+    text-align: right;
 }
 .fa-circle {
     font-size: 1.25rem;
@@ -146,6 +153,16 @@ body {
     margin-left: 15px;
     margin-right: 15px;
 }
+.channelsCaption {
+    width: 70%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+#openModalButton {
+    width: 25%;
+    text-align: right;
+}
 #conversation {
     padding: 20px;
     height: 445px;
@@ -159,15 +176,24 @@ body {
     margin-right: auto;
 }
 .conversation-item {
-    background-color: #ddd;
+    background-color: #fff;
     border-radius: 7px;
     padding: 15px;
     margin: 3px;
     width: fit-content;
+    transition: 0.3s;
+    box-shadow: 0 0 20px #ccc;
+}
+.conversation-item:hover {
+    background-color: #ccc;
 }
 .my-message {
-    background-color: #125083;
-    color: #eee;
+    background-color: #578ec9;
+    box-shadow: 0 0 10px #aaa;
+    color: #fff;
+}
+.my-message:hover {
+    background-color: #236194;
 }
 .text-input {
     font-family: "Raleway";
@@ -179,7 +205,7 @@ body {
 #submitButton {
     background-color: #125083;
     border: none;
-    transition: 0.5s;
+    transition: 0.3s;
 }
 #submitButton:hover {
     background-color: #236194;
@@ -189,10 +215,10 @@ body {
     height: 45px;
     font-family: "Raleway";
     /*width: 100%;*/
-    font-size: 3rem;
+    font-size: 2.75rem;
     color: #eee;
-    background-color: #125083;
-    border: 1px solid #3472a5;
+    background-color: #364452;
+    border: 1px solid #364452;
 }
 .modal {
     width: 40%;
@@ -201,11 +227,15 @@ body {
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
     height: 280px;
-    background-color: #125083;
+    background-color: #25323f;
     border-radius: 5px;
-    box-shadow: 0 0 20px #222;
+    box-shadow: 0 0 5px #222;
     padding: 20px;
+    color: white;
     /*visibility: hidden;*/
+}
+.header {
+    margin-bottom: 10px;
 }
 .disabled {
     pointer-events: none;
@@ -213,19 +243,20 @@ body {
 }
 #addChannelButton, #closeModalButton,
 #confirmPasswordButton, #closePasswordModalButton {
-    background-color: #236194;
+    background-color: #364452;
     border: none;
     color: #eee;
-    transition: 0.5s;
+    transition: 0.3s;
 }
 #addChannelButton:hover, #closeModalButton:hover,
 #confirmPasswordButton:hover, #closePasswordModalButton:hover {
-    background-color: #3472a5;
+    background-color: #475563;
     cursor: pointer;
 }
 #wrongPasswordError {
     color: red;
     visibility: hidden;
+    margin-bottom: 10px;
 }
 #editInput {
     width: 80%;
@@ -249,12 +280,14 @@ body {
     color: red;
     padding-left: 20px;
     padding-right: 20px;
+    padding-bottom: 20px;
     visibility: hidden;
 }
 #longChannelError {
     font-size: 1.5rem;
     color: red;
     visibility: hidden;
+    margin-bottom: 10px;
 }
 #modalAddChannel {
     height: fit-content;
@@ -262,7 +295,27 @@ body {
 }
 
 @media screen and (max-width: 670px) {
-    .center {
+    /* .center {
         width: 535px;
+    } */
+}
+@media screen and (max-width: 778px) {
+    #channels {
+        height: 175px;
+    }
+}
+
+@media screen and (max-width: 615px) {
+    #active {
+        height: 120px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .left {
+        border-radius: 20px 20px 0px 0px;
+    }
+    .right {
+        border-radius: 0px 0px 20px 20px;
     }
 }

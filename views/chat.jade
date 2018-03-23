@@ -1,24 +1,25 @@
 extends layout
 
 block content
-  div(class="center chat")
-    div(class="left", id="left")
-      h4(class="username", id="username") #[div(class="u-pull-left", id="nicknameInfo")=nickname] #[div(class="fa fa-pencil-square-o u-pull-right", aria-hidden="true", id="editButton")]
-      div(id="longNameError")="Username must have at least 20 characters."
-      div(class="active" id="active")
-      div(class="channels")
-        div(id="channels-info") #[span(class="bold u-pull-left")="CHANNELS"] #[i(class="fa fa-plus-circle u-pull-right", aria-hidden="true", id="openModalButton")]
-        div(id="channels")
-    
-    div(class="right", id="right")
-      div(id="actualChannel")
-      div(id="conversation")
-      div(id="input")
-        input(class="u-full-width text-input", type="text", placeholder="Type your message...", id="data")
+  div(class="container center")
+    div(class="row")
+      div(class="four columns left", id="left")
+        h4(class="username", id="username") #[div(class="u-pull-left", id="nicknameInfo")=nickname] #[div(class="fa fa-pencil-square-o u-pull-right", aria-hidden="true", id="editButton")]
+        div(id="longNameError")="Username must have at least 20 characters."
+        div(id="channels-info") #[span(class="bold u-pull-left")="ACTIVE"]
+        div(class="active" id="active")
+        div(class="channels")
+          div(id="channels-info") #[div(class="bold u-pull-left channelsCaption")="CHANNELS"] #[i(class="fa fa-plus-circle u-pull-right", aria-hidden="true", id="openModalButton")]
+          div(id="channels")
+      div(class="eight columns right", id="right")
+        div(id="actualChannel")
+        div(id="conversation")
+        div(id="input")
+          input(class="u-full-width text-input", type="text", placeholder="Type your message...", id="data")
 
     div(id="modalAddChannel", class="modal")
-      h5="Add channel"
-      div(id="longChannelError")="Channel name and password must have at least 20 characters."
+      h5(class="header")="Add channel"
+      div(id="longChannelError")="Channel name and password must be between 3 and 20 characters."
       label(for="channelInput")="Enter channel name"
       input(class="u-full-width text-input", type="text", placeholder="Channel name...", id="channelInput")
       label(for="channelInput")="Enter channel password (optional)"
@@ -27,7 +28,7 @@ block content
         input(type="button" value="add" id="addChannelButton" class="u-pull-left")
         input(type="button" value="cancel" id="closeModalButton" class="u-pull-right")
     div(id="modalTypePassword", class="modal")
-      h5="Password required"
+      h5(class="header")="Password required"
       div(class="row") #[div(class="u-pull-left")="Room: "] #[div(class="u-pull-left" id="modalRoomName")]
       label(for="channelPasswordRequestInput", style="margin-top: 20px;")="Please enter password"
       input(class="u-full-width text-input", type="password", placeholder="Password...", id="channelPasswordRequestInput")
